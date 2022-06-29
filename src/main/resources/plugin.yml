@@ -1,0 +1,4 @@
+name: "Voucher"
+main: "dev.hely.voucher.Voucher"
+version: "1.0-SNAPSHOT"
+author: "Hely Development"
