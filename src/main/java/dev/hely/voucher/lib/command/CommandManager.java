@@ -1,5 +1,6 @@
 package dev.hely.voucher.lib.command;
 
+import dev.hely.voucher.commands.VoucherCommand;
 import dev.hely.voucher.lib.CC;
 import dev.hely.voucher.lib.manager.Manager;
 import dev.hely.voucher.lib.wrapper.ClassWrapper;
@@ -25,6 +26,7 @@ public enum CommandManager implements Manager {
         commands = new ArrayList<>();
         pluginName = plugin.getDescription().getName();
 
+        this.commands.add(new VoucherCommand());
         this.commands.forEach(this::registerCommand);
         CC.logConsoleFormated("&aLoading " + this.commands.size() + " commands..");
     }

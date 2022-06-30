@@ -1,12 +1,24 @@
 package dev.hely.voucher.modules;
 
-public class ModuleManager {
+import dev.hely.voucher.lib.manager.Manager;
+import dev.hely.voucher.modules.item.ItemManager;
+import lombok.Getter;
+import org.bukkit.plugin.java.JavaPlugin;
 
-    public ModuleManager(){
+@Getter
+public enum ModuleManager implements Manager {
 
+    INSTANCE;
+
+    private ItemManager itemManager;
+
+    @Override
+    public void onEnable(JavaPlugin plugin) {
+        itemManager = new ItemManager();
     }
 
-    public void onDisable(){
-
+    @Override
+    public void onDisable(JavaPlugin plugin) {
+        itemManager.onDisable();
     }
 }

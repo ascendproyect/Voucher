@@ -1,0 +1,13 @@
+voucher:
+  Default:
+    displayname: "&6Default voucher"
+    material: 339
+    data: 0
+    glow: true
+    lore:
+      - "&7(Right-Click) to open voucher"
+    commands:
+      - "give %player_name% diamond 1 0"
+    sound:
+      enabled: true
+      type: "CHEST_OPEN"
