@@ -17,5 +17,6 @@ public class Item {
     private final List<String> commands;
     private final Boolean soundEnabled;
     private final String soundType;
-
+    private final Boolean broadcastEnabled;
+    private final String broadcastMessage;
 }

@@ -11,3 +11,6 @@ voucher:
     sound:
       enabled: true
       type: "CHEST_OPEN"
+    open_broadcast:
+      enabled: true
+      message: "&9&lVOUCHER &7| &6&l%player_name% &eopened the %voucher_name% voucher."

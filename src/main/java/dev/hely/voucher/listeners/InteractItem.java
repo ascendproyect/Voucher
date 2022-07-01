@@ -38,7 +38,12 @@ public class InteractItem implements Listener {
         }else{
             player.getItemInHand().setAmount(player.getItemInHand().getAmount() - 1);
         }
+
         voucherItem.getCommands().forEach(command -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command.replace("%player_name%", player.getName())));
+
+        if(voucherItem.getBroadcastEnabled()){
+            Bukkit.getServer().broadcastMessage(CC.translate(voucherItem.getBroadcastMessage().replace("%player_name%", player.getName()).replace("%voucher_name%", voucherItem.getName())));
+        }
 
         if(voucherItem.getSoundEnabled()){
             try {

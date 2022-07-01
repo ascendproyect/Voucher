@@ -35,8 +35,9 @@ public class ItemManager {
             List<String> commands = Voucher.INSTANCE.getVoucher().getConfig().getStringList("voucher." + itemname + ".commands");
             Boolean soundEnabled = Voucher.INSTANCE.getVoucher().getConfig().getBoolean("voucher." + itemname + ".sound.enabled");
             String soundType = Voucher.INSTANCE.getVoucher().getConfig().getString("voucher." + itemname + ".sound.type");
-
-            itemList.add(new Item(itemname, item.build(), commands, soundEnabled, soundType));
+            Boolean broadcastEnabled = Voucher.INSTANCE.getVoucher().getConfig().getBoolean("voucher." + itemname + ".open_broadcast.enabled");
+            String broadcastMessage = Voucher.INSTANCE.getVoucher().getConfig().getString("voucher." + itemname + ".open_broadcast.message");
+            itemList.add(new Item(itemname, item.build(), commands, soundEnabled, soundType,  broadcastEnabled, broadcastMessage));
         }
     }
 }

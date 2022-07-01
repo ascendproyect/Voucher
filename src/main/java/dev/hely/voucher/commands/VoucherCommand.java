@@ -31,8 +31,11 @@ public class VoucherCommand extends BaseCommand {
                 sender.sendMessage(CC.translate("&cVoucher not found"));
             }else{
                 if(!checkNumber(sender, args[3])) return;
+
                 item.getItemstack().setAmount(Integer.parseInt(args[3]));
                 player.getInventory().addItem(item.getItemstack());
+                sender.sendMessage(CC.translate(Voucher.INSTANCE.getConfig().getString("given.to-player").replace("%player_name%", player.getName()).replace("%voucher_name%", args[2])));
+                player.sendMessage(CC.translate(Voucher.INSTANCE.getConfig().getString("given.from-player").replace("%player_name%", sender.getName()).replace("%voucher_name%", args[2])));
             }
         }else if(args.length == 3 && args[0].equalsIgnoreCase("giveall")){
             Item item = ModuleManager.INSTANCE.getItemManager().getItemList().stream().filter(i -> i.getName().equalsIgnoreCase(args[1])).findFirst().orElse(null);
@@ -43,7 +46,9 @@ public class VoucherCommand extends BaseCommand {
                 item.getItemstack().setAmount(Integer.parseInt(args[2]));
                 for (Player player : Bukkit.getServer().getOnlinePlayers()){
                     player.getInventory().addItem(item.getItemstack());
+                    player.sendMessage(CC.translate(Voucher.INSTANCE.getConfig().getString("given.from-player").replace("%player_name%", sender.getName()).replace("%voucher_name%", args[1])));
                 }
+                sender.sendMessage(CC.translate(Voucher.INSTANCE.getConfig().getString("given.to-all-player").replace("%voucher_name%", args[1])));
             }
         }else if(args.length == 1 && (args[0].equalsIgnoreCase("list") || args[0].equalsIgnoreCase("reload"))){
             if(args[0].equalsIgnoreCase("list")){

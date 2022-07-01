@@ -1,0 +1,5 @@
+given:
+  to-player: "&eYou have just given &6&l%player_name% &9&l%voucher_name% &9voucher."
+  to-all-player: "&eYou have just given all players a &9&l%voucher_name% &9voucher."
+
+  from-player: "&eYou have received a &9&l%voucher_name% &9voucher &efor &6&l%player_name%"
